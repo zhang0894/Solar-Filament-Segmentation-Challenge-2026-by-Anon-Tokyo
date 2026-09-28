@@ -1,0 +1,49 @@
+{
+  "jobs": [
+    {
+      "name": "unet_convnextv2b_full_1536",
+      "expected_seconds": 1500,
+      "args": [
+        "--kind",
+        "semantic",
+        "--encoder",
+        "tu-convnextv2_base.fcmae_ft_in22k_in1k",
+        "--all-data",
+        "--size",
+        "1536",
+        "--batch",
+        "2",
+        "--accum",
+        "2",
+        "--epochs",
+        "12",
+        "--lr",
+        ".00005",
+        "--init",
+        "runs/unet_convnextv2b_f0_1536/best.pt",
+        "--name",
+        "unet_convnextv2b_full_1536",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnextv2b_full_test_tta",
+      "module": "scripts.predict",
+      "expected_seconds": 150,
+      "args": [
+        "--checkpoint",
+        "runs/unet_convnextv2b_full_1536/best.pt",
+        "--split",
+        "test",
+        "--tta",
+        "flip",
+        "--batch",
+        "1",
+        "--cache-probs",
+        "--output",
+        "submissions/unet_convnextv2b_full_1536_test_tta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "models": [
+    {
+      "directory": "runs/unet_convnext_f0_1536/valid_tta",
+      "weight": 1
+    }
+  ],
+  "segmentation": {
+    "threshold": 0.5,
+    "group_radius": 8,
+    "min_area": 64
+  },
+  "refiners": [
+    {
+      "checkpoint": "runs/refiner_convnext_detail_f0_v1/epoch_18.pt",
+      "batch": 16,
+      "weight": 1
+    }
+  ],
+  "refinement": {
+    "mode": "mask",
+    "threshold": 0.5,
+    "blend": 0.5,
+    "min_quality": 0.5,
+    "min_area": 64
+  }
+}

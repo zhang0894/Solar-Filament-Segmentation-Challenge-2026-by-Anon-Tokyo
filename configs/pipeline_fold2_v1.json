@@ -1,0 +1,29 @@
+{
+  "models": [
+    {
+      "checkpoint": "runs/unet_convnext_f2_1536/best.pt",
+      "weight": 1,
+      "tta": "flip",
+      "batch": 2
+    }
+  ],
+  "segmentation": {
+    "threshold": 0.5,
+    "group_radius": 8,
+    "min_area": 64
+  },
+  "refiners": [
+    {
+      "checkpoint": "runs/refiner_resnet18_f2_v1/epoch_12.pt",
+      "weight": 1,
+      "batch": 32
+    }
+  ],
+  "refinement": {
+    "mode": "mask",
+    "threshold": 0.5,
+    "blend": 0.5,
+    "min_quality": 0.5,
+    "min_area": 64
+  }
+}

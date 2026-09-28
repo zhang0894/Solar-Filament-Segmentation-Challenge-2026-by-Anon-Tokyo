@@ -1,0 +1,56 @@
+{
+  "jobs": [
+    {
+      "name": "anon_tokyo_full_refined_test",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_release_full.json",
+        "--split",
+        "test",
+        "--output",
+        "submissions/anon_tokyo_full_refined_v4"
+      ]
+    },
+    {
+      "name": "anon_tokyo_full_submission_audit",
+      "module": "scripts.audit_submission",
+      "expected_seconds": 20,
+      "args": [
+        "--submission",
+        "submissions/anon_tokyo_full_refined_v4/final/submission.csv",
+        "--test-images",
+        "data/MAGFiLO_1.0_Kaggle_2026/test/test_images",
+        "--output",
+        "submissions/anon_tokyo_full_refined_v4/final/validation.json"
+      ]
+    },
+    {
+      "name": "anon_tokyo_mixed_fresh_reproduction",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 700,
+      "args": [
+        "--config",
+        "configs/pipeline_release_mixed.json",
+        "--split",
+        "test",
+        "--output",
+        "submissions/anon_tokyo_mixed_reproduction"
+      ]
+    },
+    {
+      "name": "anon_tokyo_mixed_submission_audit",
+      "module": "scripts.audit_submission",
+      "expected_seconds": 20,
+      "args": [
+        "--submission",
+        "submissions/anon_tokyo_mixed_reproduction/final/submission.csv",
+        "--test-images",
+        "data/MAGFiLO_1.0_Kaggle_2026/test/test_images",
+        "--output",
+        "submissions/anon_tokyo_mixed_reproduction/final/validation.json"
+      ]
+    }
+  ]
+}

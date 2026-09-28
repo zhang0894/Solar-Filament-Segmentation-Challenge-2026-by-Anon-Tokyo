@@ -1,0 +1,11 @@
+{
+  "file": "submissions/anon_tokyo_final_deterministic/final/submission.csv",
+  "sha256": "6071266cecbc1bce749f6fe0c2e2b0ca60e3aa5ab1f5f71a6e040ae8614ce23c",
+  "message": "Anon Tokyo final | 5 Tiny + 2 V2-Base and 5 native refiners | deterministic inference and public reproducibility package",
+  "response": {
+    "message": "Successfully submitted to Solar Filament Segmentation Challenge 2026",
+    "ref": "56641903",
+    "submission_id": "",
+    "error": ""
+  }
+}

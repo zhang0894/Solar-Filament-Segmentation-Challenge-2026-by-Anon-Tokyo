@@ -1,0 +1,16 @@
+{
+  "team": "Anon Tokyo",
+  "contact": "pufanzhang1@gmail.com",
+  "repository": "https://github.com/zhang0894/Solar-Filament-Segmentation-Challenge-2026-by-Anon-Tokyo",
+  "pipeline_config": "configs/pipeline_release_mixed.json",
+  "manifest_sha256": "f330e09d894a9801f129abd4925327a5616d7383d75a44807ad8ff99bc1b4d7c",
+  "test_manifest_sha256": "194bcc7d6f9c586c9e87bed5f66ce2caef4c2b54138a24aa75e0758c4abb753a",
+  "csv_sha256": "6071266cecbc1bce749f6fe0c2e2b0ca60e3aa5ab1f5f71a6e040ae8614ce23c",
+  "submission_ref": "56641903",
+  "public_score": 0.38,
+  "private_score": null,
+  "oof_pq": 0.44266329482574596,
+  "oof_scope": "Frozen Tiny/refiner single-fold recipe, pooled over five held-out folds; not an OOF estimate for an all-data or test ensemble.",
+  "checkpoint_dataset": "https://www.kaggle.com/datasets/zpf999/anon-tokyo-solar-filament-2026-checkpoints",
+  "checkpoint_dataset_version": 1
+}

@@ -1,0 +1,43 @@
+{
+  "tests": {
+    "passed": 59,
+    "runtime_seconds": 5.49,
+    "scope": "staged release source; official manifest and packed-target integration fixtures",
+    "log": "artifacts/verification/staged_tests.log"
+  },
+  "lint": "ruff check filament scripts tests: passed",
+  "dependencies": {
+    "pinned": 118,
+    "resolved": 118,
+    "missing_pins": [],
+    "matches": true
+  },
+  "fresh_manifest": {
+    "sha256": "f330e09d894a9801f129abd4925327a5616d7383d75a44807ad8ff99bc1b4d7c",
+    "reference_sha256": "f330e09d894a9801f129abd4925327a5616d7383d75a44807ad8ff99bc1b4d7c",
+    "byte_identical": true
+  },
+  "report": {
+    "pages": 4,
+    "official_template": true,
+    "visual_inspection": "all four pages; no overfull boxes"
+  },
+  "organizer_form_submitted": false,
+  "notebook": {
+    "executed": true,
+    "gpu_steps": "Explicit opt-in; default evidence cells executed successfully",
+    "kernel": "anon-tokyo, Python 3.12"
+  },
+  "clean_public_reproduction": {
+    "status": "stopped_at_user_request",
+    "completed": [
+      "fresh official data preparation",
+      "anonymous public download access",
+      "range-download regression tests"
+    ],
+    "incomplete": [
+      "complete public weight download and checksum verification",
+      "second deterministic full inference comparison"
+    ]
+  }
+}

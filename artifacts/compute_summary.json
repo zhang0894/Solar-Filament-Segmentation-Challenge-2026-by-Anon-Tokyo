@@ -1,0 +1,222 @@
+{
+  "note": "Saved epoch training timers only; excludes validation, inference, preprocessing and unrecorded failed work. Hardware changed during the project. Null denotes no separate training timer.",
+  "runs": [
+    {
+      "name": "mask2former_swinb_f0_dense",
+      "kind": "instance",
+      "size": 1024,
+      "completed_epoch": 12,
+      "recorded_training_seconds": 1016.22
+    },
+    {
+      "name": "mask2former_swinb_f0_v1",
+      "kind": "instance",
+      "size": 1024,
+      "completed_epoch": 8,
+      "recorded_training_seconds": 720.0
+    },
+    {
+      "name": "maskrcnn_r50v2_f0_1536",
+      "kind": "rcnn",
+      "size": 1536,
+      "completed_epoch": 12,
+      "recorded_training_seconds": 559.49
+    },
+    {
+      "name": "maskrcnn_r50v2_f0_v1",
+      "kind": "rcnn",
+      "size": 1024,
+      "completed_epoch": 40,
+      "recorded_training_seconds": 1228.92
+    },
+    {
+      "name": "refiner_resnet18_f0_q05",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "refiner_resnet18_f0_v1",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "refiner_resnet18_f1_v1",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "refiner_resnet18_f2_v1",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "refiner_resnet18_f3_v1",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "refiner_resnet18_f4_v1",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "refiner_resnet18_full_v1",
+      "kind": "refinement",
+      "size": 384,
+      "completed_epoch": 12,
+      "recorded_training_seconds": null
+    },
+    {
+      "name": "unet_convnext_f0_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 24,
+      "recorded_training_seconds": 606.53
+    },
+    {
+      "name": "unet_convnext_f0_2048",
+      "kind": "semantic",
+      "size": 2048,
+      "completed_epoch": 18,
+      "recorded_training_seconds": 846.84
+    },
+    {
+      "name": "unet_convnext_f0_annotation_weighted",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 12,
+      "recorded_training_seconds": 313.62
+    },
+    {
+      "name": "unet_convnext_f0_balanced",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 12,
+      "recorded_training_seconds": 315.66
+    },
+    {
+      "name": "unet_convnext_f0_tile1024",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 18,
+      "recorded_training_seconds": 404.73
+    },
+    {
+      "name": "unet_convnext_f0_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 30,
+      "recorded_training_seconds": 586.95
+    },
+    {
+      "name": "unet_convnext_f1_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 24,
+      "recorded_training_seconds": 565.08
+    },
+    {
+      "name": "unet_convnext_f1_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 30,
+      "recorded_training_seconds": 351.35
+    },
+    {
+      "name": "unet_convnext_f2_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 24,
+      "recorded_training_seconds": 584.36
+    },
+    {
+      "name": "unet_convnext_f2_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 30,
+      "recorded_training_seconds": 382.02
+    },
+    {
+      "name": "unet_convnext_f3_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 24,
+      "recorded_training_seconds": 587.39
+    },
+    {
+      "name": "unet_convnext_f3_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 30,
+      "recorded_training_seconds": 350.26
+    },
+    {
+      "name": "unet_convnext_f4_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 24,
+      "recorded_training_seconds": 627.85
+    },
+    {
+      "name": "unet_convnext_f4_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 30,
+      "recorded_training_seconds": 362.39
+    },
+    {
+      "name": "unet_convnext_full_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 24,
+      "recorded_training_seconds": 717.05
+    },
+    {
+      "name": "unet_convnext_full_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 30,
+      "recorded_training_seconds": 422.31
+    },
+    {
+      "name": "unet_convnextv2b_f0_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 18,
+      "recorded_training_seconds": 1542.98
+    },
+    {
+      "name": "unet_convnextv2b_f0_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 40,
+      "recorded_training_seconds": 1557.45
+    },
+    {
+      "name": "unet_convnextv2b_f1_1536",
+      "kind": "semantic",
+      "size": 1536,
+      "completed_epoch": 18,
+      "recorded_training_seconds": 1519.84
+    },
+    {
+      "name": "unet_convnextv2b_f1_v1",
+      "kind": "semantic",
+      "size": 1024,
+      "completed_epoch": 40,
+      "recorded_training_seconds": 1520.81
+    }
+  ]
+}

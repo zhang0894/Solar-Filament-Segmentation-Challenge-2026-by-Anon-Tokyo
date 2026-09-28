@@ -1,0 +1,12 @@
+{
+  "ref": "zpf999/anon-tokyo-solar-filament-2026-checkpoints",
+  "totalBytes": 1513234776,
+  "url": "https://www.kaggle.com/datasets/zpf999/anon-tokyo-solar-filament-2026-checkpoints",
+  "isPrivate": false,
+  "licenseName": "Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
+  "title": "Anon Tokyo Solar Filament 2026 Checkpoints",
+  "currentVersionNumber": 1,
+  "anonymous_listing_verified": true,
+  "anonymous_download_verified": true,
+  "download_endpoint": "https://api.kaggle.com/v1/datasets/download/zpf999/anon-tokyo-solar-filament-2026-checkpoints?datasetVersionNumber=1"
+}

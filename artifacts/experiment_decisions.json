@@ -1,0 +1,161 @@
+[
+  {
+    "experiment": "native_2048",
+    "development_pq": 0.4262096600180483,
+    "reference_pq": 0.4317603616687209,
+    "decision": "keep 1536 as main; higher resolution did not improve"
+  },
+  {
+    "experiment": "d4_tta",
+    "development_pq": 0.4315553228902344,
+    "reference_pq": 0.4317603616687209,
+    "decision": "keep 3-view flip TTA; 8-view cost not justified"
+  },
+  {
+    "experiment": "hysteresis_grouping",
+    "development_pq": 0.4327255486801584,
+    "reference_pq": 0.4317603616687209,
+    "decision": "small development-only gain; do not change frozen multi-fold recipe"
+  },
+  {
+    "experiment": "1536_plus_2048",
+    "development_pq": 0.43114323457705767,
+    "reference_pq": 0.4317603616687209,
+    "decision": "exclude native model from main ensemble"
+  },
+  {
+    "experiment": "neighbor_image_registration",
+    "protocol": "20 distinct official training-image pairs, image-only retrieval correlation > 0.1; excluded from grouped OOF",
+    "transferred_mask_pq": 0.2375395929947729,
+    "decision": "reject; insufficient segmentation quality, no test predictions changed"
+  },
+  {
+    "experiment": "native_mask_morphology",
+    "results": [
+      {
+        "operation": "identity",
+        "radius": 0,
+        "pq": 0.44140493948920106
+      },
+      {
+        "operation": "holes",
+        "radius": 0,
+        "pq": 0.441417667283386
+      },
+      {
+        "operation": "close",
+        "radius": 3,
+        "pq": 0.4412908568753688
+      },
+      {
+        "operation": "close",
+        "radius": 6,
+        "pq": 0.4397724646211044
+      },
+      {
+        "operation": "close",
+        "radius": 10,
+        "pq": 0.43629419300906763
+      },
+      {
+        "operation": "dilate",
+        "radius": 1,
+        "pq": 0.42137850777033536
+      },
+      {
+        "operation": "dilate",
+        "radius": 2,
+        "pq": 0.3509950656363734
+      },
+      {
+        "operation": "erode",
+        "radius": 1,
+        "pq": 0.40525639162590193
+      }
+    ],
+    "decision": "retain original masks; filling holes is negligible and other changes reduce PQ"
+  },
+  {
+    "experiment": "fivefold_semantic_native_refiner_ensemble",
+    "five_fold_oof_pq": 0.44266329482574596,
+    "public_score": 0.38,
+    "reference_public_score": 0.38,
+    "submission_ref": "56636941",
+    "decision": "no visible public improvement; prioritize complementary instance models and independently validated changes, preserve three remaining daily submissions"
+  },
+  {
+    "experiment": "combined_geometry_and_refiner_quality",
+    "development_best_pq": 0.44211502239159234,
+    "reference_pq": 0.44140493948920106,
+    "decision": "do not promote; development gain below .001 without independent confirmation"
+  },
+  {
+    "experiment": "small_disconnected_component_cleanup",
+    "reference_pq": 0.44140493948920106,
+    "development_best_pq": 0.4415568437151672,
+    "decision": "retain original instance masks; no meaningful improvement; largest-component-only decreases PQ"
+  },
+  {
+    "experiment": "tiny_and_convnextv2_native_refiner",
+    "development_fold0_pq": 0.44770786056403306,
+    "reference_fold0_pq": 0.44140493948920106,
+    "confirmation_fold1_pq": 0.43598722767456827,
+    "reference_fold1_pq": 0.43192637554163943,
+    "confirmation_fold1_delta_95pct": [
+      -0.0031921544197003686,
+      0.010395959241281727
+    ],
+    "decision": "retain as complementary architecture; two folds improve but confirmation interval crosses zero; avoid claiming statistically established gain"
+  },
+  {
+    "experiment": "maskrcnn_r50v2_1536_calibrated",
+    "development_pq": 0.4034621268763399,
+    "refined_development_pq": 0.425426265971316,
+    "decision": "Reject as replacement: below frozen semantic/refiner recipe; scores are development-calibrated."
+  },
+  {
+    "experiment": "maskrcnn_refined_complementary_instances",
+    "development_pq": 0.44308764394919437,
+    "reference_pq": 0.44140493948920106,
+    "comparison": {
+      "baseline": "runs/pipeline_cached_reproduction_v1/final/entries.json",
+      "candidate": "runs/rcnn_refined_complementarity_f0/entries.json",
+      "fold": 0,
+      "observation_groups": 66,
+      "baseline_pq": 0.4414049394892011,
+      "candidate_pq": 0.4430876439491943,
+      "delta": 0.0016827044599931895,
+      "paired_bootstrap_delta_95pct": [
+        -0.0008825178191125188,
+        0.004651122537174503
+      ],
+      "bootstrap_fraction_positive": 0.8866,
+      "note": "Development-fold uncertainty; threshold/model selection on this fold can bias the gain."
+    },
+    "decision": "Do not promote a small development-selected gain without independent confirmation."
+  },
+  {
+    "experiment": "refiner_quality_loss_weight_0.5",
+    "development_pq": 0.4407998465102779,
+    "reference_pq": 0.44140493948920106,
+    "decision": "Retain quality loss weight 0.1; larger weight does not improve."
+  },
+  {
+    "experiment": "component_balanced_finetuning",
+    "development_pq": 0.4415717273794283,
+    "reference_pq": 0.44140493948920106,
+    "decision": "Retain the frozen recipe; development gain is negligible."
+  },
+  {
+    "experiment": "annotation_weighted_image_sampling",
+    "development_pq": 0.439298686420156,
+    "reference_pq": 0.44140493948920106,
+    "decision": "Retain uniform image sampling; annotation-entry weighting reduces development PQ."
+  },
+  {
+    "experiment": "native_tile_1024_finetuning",
+    "development_pq": 0.4397297860698889,
+    "reference_pq": 0.44140493948920106,
+    "decision": "Retain whole-image 1536 context; native-tile fine-tuning did not improve refined PQ."
+  }
+]

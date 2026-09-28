@@ -1,0 +1,111 @@
+{
+  "note": "Fixed epochs selected from the cross-validation recipe. No OOF claim for these models.",
+  "jobs": [
+    {
+      "name": "unet_convnext_full_v1",
+      "module": "scripts.train",
+      "args": [
+        "--kind",
+        "semantic",
+        "--all-data",
+        "--size",
+        "1024",
+        "--batch",
+        "4",
+        "--epochs",
+        "30",
+        "--lr",
+        ".0003",
+        "--name",
+        "unet_convnext_full_v1",
+        "--workers",
+        "4"
+      ],
+      "expected_seconds": 500
+    },
+    {
+      "name": "unet_convnext_full_1536",
+      "module": "scripts.train",
+      "args": [
+        "--kind",
+        "semantic",
+        "--all-data",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "24",
+        "--lr",
+        ".0001",
+        "--init",
+        "runs/unet_convnext_full_v1/best.pt",
+        "--name",
+        "unet_convnext_full_1536",
+        "--workers",
+        "4"
+      ],
+      "expected_seconds": 850
+    },
+    {
+      "name": "unet_convnext_full_train_proposals",
+      "module": "scripts.predict",
+      "args": [
+        "--checkpoint",
+        "runs/unet_convnext_full_v1/best.pt",
+        "--split",
+        "train",
+        "--output",
+        "runs/unet_convnext_full_v1/train_proposals",
+        "--threshold",
+        ".5",
+        "--min-area",
+        "64",
+        "--batch",
+        "4"
+      ],
+      "expected_seconds": 120
+    },
+    {
+      "name": "refiner_resnet18_full_v1",
+      "module": "scripts.train_refiner",
+      "args": [
+        "--predictions",
+        "runs/unet_convnext_full_v1/train_proposals",
+        "--name",
+        "refiner_resnet18_full_v1",
+        "--fold",
+        "-1",
+        "--epochs",
+        "12",
+        "--samples",
+        "6000",
+        "--batch",
+        "48",
+        "--size",
+        "384",
+        "--workers",
+        "6"
+      ],
+      "expected_seconds": 220
+    },
+    {
+      "name": "unet_convnext_full_test_tta",
+      "module": "scripts.predict",
+      "args": [
+        "--checkpoint",
+        "runs/unet_convnext_full_1536/best.pt",
+        "--split",
+        "test",
+        "--output",
+        "submissions/unet_convnext_full_1536_test_tta",
+        "--tta",
+        "flip",
+        "--batch",
+        "2",
+        "--cache-probs"
+      ],
+      "expected_seconds": 120
+    }
+  ]
+}

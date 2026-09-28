@@ -1,0 +1,44 @@
+[
+  {
+    "size": 1024,
+    "image_id": "20110109104734Ch",
+    "instances": 60,
+    "dense_seconds": 0.3878382546827197,
+    "roi_seconds": 0.008504126220941544
+  },
+  {
+    "size": 1024,
+    "image_id": "20110128174814Mh",
+    "instances": 60,
+    "dense_seconds": 0.3819885551929474,
+    "roi_seconds": 0.005389922298491001
+  },
+  {
+    "size": 1024,
+    "image_id": "20110322005814Mh",
+    "instances": 20,
+    "dense_seconds": 0.1367777045816183,
+    "roi_seconds": 0.001965661533176899
+  },
+  {
+    "size": 1536,
+    "image_id": "20110109104734Ch",
+    "instances": 60,
+    "dense_seconds": 0.5823063300922513,
+    "roi_seconds": 0.007177718915045261
+  },
+  {
+    "size": 1536,
+    "image_id": "20110128174814Mh",
+    "instances": 60,
+    "dense_seconds": 0.5840352820232511,
+    "roi_seconds": 0.004916519857943058
+  },
+  {
+    "size": 1536,
+    "image_id": "20110322005814Mh",
+    "instances": 60,
+    "dense_seconds": 0.5692637003958225,
+    "roi_seconds": 0.0047721536830067635
+  }
+]

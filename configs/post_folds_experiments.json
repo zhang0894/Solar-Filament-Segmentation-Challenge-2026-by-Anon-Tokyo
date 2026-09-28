@@ -1,0 +1,172 @@
+{
+  "jobs": [
+    {
+      "name": "refiner_resnet18_f0_q05",
+      "module": "scripts.train_refiner",
+      "expected_seconds": 200,
+      "args": [
+        "--predictions",
+        "runs/unet_convnext_f0_v1/train_proposals",
+        "--name",
+        "refiner_resnet18_f0_q05",
+        "--fold",
+        "0",
+        "--epochs",
+        "12",
+        "--samples",
+        "6000",
+        "--batch",
+        "48",
+        "--size",
+        "384",
+        "--workers",
+        "6",
+        "--quality-weight",
+        ".5"
+      ]
+    },
+    {
+      "name": "refiner_resnet18_f0_q05_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_refiner_resnet18_f0_q05.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/refiner_resnet18_f0_q05_pipeline_valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_balanced",
+      "expected_seconds": 500,
+      "args": [
+        "--kind",
+        "semantic",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".00005",
+        "--val-every",
+        "3",
+        "--component-balanced",
+        "--init",
+        "runs/unet_convnext_f0_1536/best.pt",
+        "--name",
+        "unet_convnext_f0_balanced",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_balanced_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_unet_convnext_f0_balanced.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/unet_convnext_f0_balanced_pipeline_valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_annotation_weighted",
+      "expected_seconds": 500,
+      "args": [
+        "--kind",
+        "semantic",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".00005",
+        "--val-every",
+        "3",
+        "--annotation-weighted",
+        "--init",
+        "runs/unet_convnext_f0_1536/best.pt",
+        "--name",
+        "unet_convnext_f0_annotation_weighted",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_annotation_weighted_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_unet_convnext_f0_annotation_weighted.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/unet_convnext_f0_annotation_weighted_pipeline_valid"
+      ]
+    },
+    {
+      "name": "maskrcnn_r50v2_f0_v1",
+      "expected_seconds": 2400,
+      "args": [
+        "--kind",
+        "rcnn",
+        "--fold",
+        "0",
+        "--size",
+        "1024",
+        "--batch",
+        "4",
+        "--epochs",
+        "40",
+        "--lr",
+        ".0003",
+        "--val-every",
+        "5",
+        "--name",
+        "maskrcnn_r50v2_f0_v1",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "maskrcnn_r50v2_f0_1536",
+      "expected_seconds": 1400,
+      "args": [
+        "--kind",
+        "rcnn",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".0001",
+        "--val-every",
+        "3",
+        "--init",
+        "runs/maskrcnn_r50v2_f0_v1/best.pt",
+        "--name",
+        "maskrcnn_r50v2_f0_1536",
+        "--workers",
+        "4"
+      ]
+    }
+  ]
+}

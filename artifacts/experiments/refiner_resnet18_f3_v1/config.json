@@ -1,0 +1,15 @@
+{
+  "predictions": "runs/unet_convnext_f3_v1/train_proposals",
+  "name": "refiner_resnet18_f3_v1",
+  "fold": 3,
+  "epochs": 12,
+  "samples": 6000,
+  "batch": 48,
+  "size": 384,
+  "lr": 0.0003,
+  "quality_weight": 0.1,
+  "workers": 6,
+  "resume": false,
+  "kind": "refinement",
+  "manifest_sha256": "f330e09d894a9801f129abd4925327a5616d7383d75a44807ad8ff99bc1b4d7c"
+}

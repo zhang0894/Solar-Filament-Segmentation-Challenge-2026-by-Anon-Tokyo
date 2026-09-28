@@ -1,0 +1,80 @@
+{
+  "team": "Anon Tokyo",
+  "dataset_ref": "zpf999/anon-tokyo-solar-filament-2026-checkpoints",
+  "dataset_version": 1,
+  "download_url": "https://api.kaggle.com/v1/datasets/download/zpf999/anon-tokyo-solar-filament-2026-checkpoints?datasetVersionNumber=1",
+  "files": [
+    {
+      "path": "runs/refiner_resnet18_f0_v1/epoch_12.pt",
+      "bundle_filename": "refiner_resnet18_f0_v1__epoch_12.pt",
+      "sha256": "5389b5b59192fb5835b2f44449a56aa89bc7cff59451d8051b57b047004b8679",
+      "bytes": 49958477
+    },
+    {
+      "path": "runs/refiner_resnet18_f1_v1/epoch_12.pt",
+      "bundle_filename": "refiner_resnet18_f1_v1__epoch_12.pt",
+      "sha256": "69c63cb928af11a645fafbc509178093a8cf4d5bab5b9918009eef2fa830ef5e",
+      "bytes": 49958477
+    },
+    {
+      "path": "runs/refiner_resnet18_f2_v1/epoch_12.pt",
+      "bundle_filename": "refiner_resnet18_f2_v1__epoch_12.pt",
+      "sha256": "e4bf7fd6b418793aa49430edd9f1d5fda7372c7828cb2268b5b635c6608a5589",
+      "bytes": 49958477
+    },
+    {
+      "path": "runs/refiner_resnet18_f3_v1/epoch_12.pt",
+      "bundle_filename": "refiner_resnet18_f3_v1__epoch_12.pt",
+      "sha256": "abeb70c44dd6c4d11fccc7e9d6db24ea2e0c094e51a48c9f89e4ef9a12d55537",
+      "bytes": 49958477
+    },
+    {
+      "path": "runs/refiner_resnet18_f4_v1/epoch_12.pt",
+      "bundle_filename": "refiner_resnet18_f4_v1__epoch_12.pt",
+      "sha256": "8fb9caab619e0f01d60a09889997f6c2684923aa75e8a687bde9b596191e5430",
+      "bytes": 49958477
+    },
+    {
+      "path": "runs/unet_convnext_f0_1536/best.pt",
+      "bundle_filename": "unet_convnext_f0_1536__best.pt",
+      "sha256": "4fb81bd2194ab87f765feedbf70ab7ba2cdb7fdfbbd9e5e93b57765c70e2a15a",
+      "bytes": 127785469
+    },
+    {
+      "path": "runs/unet_convnext_f1_1536/best.pt",
+      "bundle_filename": "unet_convnext_f1_1536__best.pt",
+      "sha256": "5994bc902e41bd5e46f44048aab1a55d0fcb08d1e919c4111cdf2fc1e1700231",
+      "bytes": 127785597
+    },
+    {
+      "path": "runs/unet_convnext_f2_1536/best.pt",
+      "bundle_filename": "unet_convnext_f2_1536__best.pt",
+      "sha256": "23ad918a87e9d2303b139fc897fea315787557796636d42686f31de65a478eb9",
+      "bytes": 127785661
+    },
+    {
+      "path": "runs/unet_convnext_f3_1536/best.pt",
+      "bundle_filename": "unet_convnext_f3_1536__best.pt",
+      "sha256": "7877e07dce4f46b9acb82f84d7327e9f62ac10d0a52b627666dda706d242d62e",
+      "bytes": 127785661
+    },
+    {
+      "path": "runs/unet_convnext_f4_1536/best.pt",
+      "bundle_filename": "unet_convnext_f4_1536__best.pt",
+      "sha256": "c545a1cc93cedae66ade92df9518d1a7ff6df648addca303a1f7b7fa52eb24e3",
+      "bytes": 127785661
+    },
+    {
+      "path": "runs/unet_convnextv2b_f0_1536/best.pt",
+      "bundle_filename": "unet_convnextv2b_f0_1536__best.pt",
+      "sha256": "55bdacbb00d1f4c0adba19e58ac9a11d2a9174832f0dae7a794fe6e21ac55431",
+      "bytes": 371232543
+    },
+    {
+      "path": "runs/unet_convnextv2b_f1_1536/best.pt",
+      "bundle_filename": "unet_convnextv2b_f1_1536__best.pt",
+      "sha256": "d62063c4d2338ab29ab3296b373031a535e650873b8fbe04a5cc2fa386a1e9fc",
+      "bytes": 371232607
+    }
+  ]
+}

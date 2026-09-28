@@ -1,0 +1,11 @@
+...........................................................              [100%]
+=============================== warnings summary ===============================
+tests/test_metrics.py: 13 warnings
+tests/test_prediction.py: 14 warnings
+tests/test_rcnn.py: 2 warnings
+tests/test_submission_audit.py: 3 warnings
+  .venv/lib/python3.12/site-packages/pycocotools/mask.py:91: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments. To learn more, see the migration guide https://numpy.org/devdocs/numpy_2_0_migration_guide.html#adapting-to-changes-in-the-copy-keyword
+    return _mask.decode([rleObjs])[:,:,0]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+59 passed, 32 warnings in 5.49s

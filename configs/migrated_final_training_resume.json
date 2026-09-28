@@ -1,0 +1,566 @@
+{
+  "note": "Resume Mask R-CNN after disabling cuDNN autotuning for variable-size ROI batches; retain completed first epoch and all original experiment settings.",
+  "jobs": [
+    {
+      "name": "maskrcnn_r50v2_f0_v1_resume",
+      "expected_seconds": 2400,
+      "args": [
+        "--kind",
+        "rcnn",
+        "--fold",
+        "0",
+        "--size",
+        "1024",
+        "--batch",
+        "4",
+        "--epochs",
+        "40",
+        "--lr",
+        ".0003",
+        "--val-every",
+        "5",
+        "--name",
+        "maskrcnn_r50v2_f0_v1",
+        "--workers",
+        "4",
+        "--resume"
+      ]
+    },
+    {
+      "name": "maskrcnn_r50v2_f0_1536",
+      "expected_seconds": 1400,
+      "args": [
+        "--kind",
+        "rcnn",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".0001",
+        "--val-every",
+        "3",
+        "--init",
+        "runs/maskrcnn_r50v2_f0_v1/best.pt",
+        "--name",
+        "maskrcnn_r50v2_f0_1536",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_valid_native",
+      "module": "scripts.predict",
+      "expected_seconds": 180,
+      "args": [
+        "--checkpoint",
+        "runs/maskrcnn_r50v2_f0_1536/best.pt",
+        "--split",
+        "valid",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/valid_native",
+        "--threshold",
+        ".2",
+        "--batch",
+        "2",
+        "--cache-probs"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_native_refiner",
+      "module": "scripts.predict_refiner",
+      "expected_seconds": 180,
+      "args": [
+        "--checkpoint",
+        "runs/refiner_resnet18_f0_v1/epoch_12.pt",
+        "--predictions",
+        "runs/maskrcnn_r50v2_f0_1536/valid_native",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/native_refiner_cache",
+        "--batch",
+        "16"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_refined_blend_1",
+      "module": "scripts.refine_cached",
+      "expected_seconds": 60,
+      "args": [
+        "--cache",
+        "runs/maskrcnn_r50v2_f0_1536/native_refiner_cache",
+        "--proposals",
+        "runs/maskrcnn_r50v2_f0_1536/valid_native",
+        "--mode",
+        "mask",
+        "--threshold",
+        ".5",
+        "--blend",
+        "1",
+        "--min-quality",
+        ".5",
+        "--min-area",
+        "64",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_1"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_score_calibration_1",
+      "module": "scripts.calibrate",
+      "expected_seconds": 45,
+      "args": [
+        "--predictions",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_1/predictions.json",
+        "--fold",
+        "0",
+        "--areas",
+        "64",
+        "--scores",
+        ".2",
+        ".4",
+        ".6",
+        ".8",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_1/score_calibration.json"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_refined_blend_p75",
+      "module": "scripts.refine_cached",
+      "expected_seconds": 60,
+      "args": [
+        "--cache",
+        "runs/maskrcnn_r50v2_f0_1536/native_refiner_cache",
+        "--proposals",
+        "runs/maskrcnn_r50v2_f0_1536/valid_native",
+        "--mode",
+        "mask",
+        "--threshold",
+        ".5",
+        "--blend",
+        ".75",
+        "--min-quality",
+        ".5",
+        "--min-area",
+        "64",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_p75"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_score_calibration_p75",
+      "module": "scripts.calibrate",
+      "expected_seconds": 45,
+      "args": [
+        "--predictions",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_p75/predictions.json",
+        "--fold",
+        "0",
+        "--areas",
+        "64",
+        "--scores",
+        ".2",
+        ".4",
+        ".6",
+        ".8",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_p75/score_calibration.json"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_refined_blend_p5",
+      "module": "scripts.refine_cached",
+      "expected_seconds": 60,
+      "args": [
+        "--cache",
+        "runs/maskrcnn_r50v2_f0_1536/native_refiner_cache",
+        "--proposals",
+        "runs/maskrcnn_r50v2_f0_1536/valid_native",
+        "--mode",
+        "mask",
+        "--threshold",
+        ".5",
+        "--blend",
+        ".5",
+        "--min-quality",
+        ".5",
+        "--min-area",
+        "64",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_p5"
+      ]
+    },
+    {
+      "name": "maskrcnn_f0_score_calibration_p5",
+      "module": "scripts.calibrate",
+      "expected_seconds": 45,
+      "args": [
+        "--predictions",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_p5/predictions.json",
+        "--fold",
+        "0",
+        "--areas",
+        "64",
+        "--scores",
+        ".2",
+        ".4",
+        ".6",
+        ".8",
+        "--output",
+        "runs/maskrcnn_r50v2_f0_1536/refined_blend_p5/score_calibration.json"
+      ]
+    },
+    {
+      "name": "refiner_resnet18_f0_q05",
+      "module": "scripts.train_refiner",
+      "expected_seconds": 200,
+      "args": [
+        "--predictions",
+        "runs/unet_convnext_f0_v1/train_proposals",
+        "--name",
+        "refiner_resnet18_f0_q05",
+        "--fold",
+        "0",
+        "--epochs",
+        "12",
+        "--samples",
+        "6000",
+        "--batch",
+        "48",
+        "--size",
+        "384",
+        "--workers",
+        "6",
+        "--quality-weight",
+        ".5"
+      ]
+    },
+    {
+      "name": "refiner_resnet18_f0_q05_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_refiner_resnet18_f0_q05.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/refiner_resnet18_f0_q05_pipeline_valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_balanced",
+      "expected_seconds": 500,
+      "args": [
+        "--kind",
+        "semantic",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".00005",
+        "--val-every",
+        "3",
+        "--component-balanced",
+        "--init",
+        "runs/unet_convnext_f0_1536/best.pt",
+        "--name",
+        "unet_convnext_f0_balanced",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_balanced_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_unet_convnext_f0_balanced.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/unet_convnext_f0_balanced_pipeline_valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_annotation_weighted",
+      "expected_seconds": 500,
+      "args": [
+        "--kind",
+        "semantic",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".00005",
+        "--val-every",
+        "3",
+        "--annotation-weighted",
+        "--init",
+        "runs/unet_convnext_f0_1536/best.pt",
+        "--name",
+        "unet_convnext_f0_annotation_weighted",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_annotation_weighted_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_unet_convnext_f0_annotation_weighted.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/unet_convnext_f0_annotation_weighted_pipeline_valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_contrast",
+      "expected_seconds": 550,
+      "args": [
+        "--kind",
+        "semantic",
+        "--fold",
+        "0",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "12",
+        "--lr",
+        ".00005",
+        "--val-every",
+        "3",
+        "--contrast-input",
+        "--init",
+        "runs/unet_convnext_f0_1536/best.pt",
+        "--name",
+        "unet_convnext_f0_contrast",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_contrast_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_unet_convnext_f0_contrast.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/unet_convnext_f0_contrast_pipeline_valid"
+      ]
+    },
+    {
+      "name": "refiner_convnext_detail_f0_v1",
+      "module": "scripts.train_refiner",
+      "expected_seconds": 900,
+      "args": [
+        "--predictions",
+        "runs/unet_convnext_f0_v1/train_proposals",
+        "--name",
+        "refiner_convnext_detail_f0_v1",
+        "--fold",
+        "0",
+        "--epochs",
+        "18",
+        "--samples",
+        "6000",
+        "--batch",
+        "48",
+        "--size",
+        "384",
+        "--workers",
+        "6",
+        "--lr",
+        ".0001",
+        "--encoder",
+        "tu-convnext_tiny.fb_in22k_ft_in1k",
+        "--detail-residual"
+      ]
+    },
+    {
+      "name": "refiner_convnext_detail_f0_v1_pipeline_valid",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 160,
+      "args": [
+        "--config",
+        "configs/pipeline_refiner_convnext_detail_f0_v1.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/refiner_convnext_detail_f0_v1_pipeline_valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_f0_tile1024",
+      "expected_seconds": 1000,
+      "args": [
+        "--kind",
+        "semantic",
+        "--fold",
+        "0",
+        "--size",
+        "1024",
+        "--tile-size",
+        "1024",
+        "--train-repeat",
+        "2",
+        "--batch",
+        "8",
+        "--epochs",
+        "18",
+        "--lr",
+        ".00005",
+        "--val-every",
+        "6",
+        "--init",
+        "runs/unet_convnext_f0_1536/best.pt",
+        "--name",
+        "unet_convnext_f0_tile1024",
+        "--workers",
+        "6"
+      ]
+    },
+    {
+      "name": "pipeline_tile_f0",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 400,
+      "args": [
+        "--config",
+        "configs/pipeline_tile_f0.json",
+        "--output",
+        "runs/pipeline_tile_f0",
+        "--split",
+        "valid"
+      ]
+    },
+    {
+      "name": "unet_convnext_full_v1",
+      "module": "scripts.train",
+      "args": [
+        "--kind",
+        "semantic",
+        "--all-data",
+        "--size",
+        "1024",
+        "--batch",
+        "4",
+        "--epochs",
+        "30",
+        "--lr",
+        ".0003",
+        "--name",
+        "unet_convnext_full_v1",
+        "--workers",
+        "4"
+      ],
+      "expected_seconds": 500
+    },
+    {
+      "name": "unet_convnext_full_1536",
+      "module": "scripts.train",
+      "args": [
+        "--kind",
+        "semantic",
+        "--all-data",
+        "--size",
+        "1536",
+        "--batch",
+        "4",
+        "--epochs",
+        "24",
+        "--lr",
+        ".0001",
+        "--init",
+        "runs/unet_convnext_full_v1/best.pt",
+        "--name",
+        "unet_convnext_full_1536",
+        "--workers",
+        "4"
+      ],
+      "expected_seconds": 850
+    },
+    {
+      "name": "unet_convnext_full_train_proposals",
+      "module": "scripts.predict",
+      "args": [
+        "--checkpoint",
+        "runs/unet_convnext_full_v1/best.pt",
+        "--split",
+        "train",
+        "--output",
+        "runs/unet_convnext_full_v1/train_proposals",
+        "--threshold",
+        ".5",
+        "--min-area",
+        "64",
+        "--batch",
+        "4"
+      ],
+      "expected_seconds": 120
+    },
+    {
+      "name": "refiner_resnet18_full_v1",
+      "module": "scripts.train_refiner",
+      "args": [
+        "--predictions",
+        "runs/unet_convnext_full_v1/train_proposals",
+        "--name",
+        "refiner_resnet18_full_v1",
+        "--fold",
+        "-1",
+        "--epochs",
+        "12",
+        "--samples",
+        "6000",
+        "--batch",
+        "48",
+        "--size",
+        "384",
+        "--workers",
+        "6"
+      ],
+      "expected_seconds": 220
+    },
+    {
+      "name": "unet_convnext_full_test_tta",
+      "module": "scripts.predict",
+      "args": [
+        "--checkpoint",
+        "runs/unet_convnext_full_1536/best.pt",
+        "--split",
+        "test",
+        "--output",
+        "submissions/unet_convnext_full_1536_test_tta",
+        "--tta",
+        "flip",
+        "--batch",
+        "2",
+        "--cache-probs"
+      ],
+      "expected_seconds": 120
+    }
+  ]
+}

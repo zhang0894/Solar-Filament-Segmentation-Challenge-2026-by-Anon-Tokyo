@@ -1,0 +1,14 @@
+{
+  "csv_sha256": "6071266cecbc1bce749f6fe0c2e2b0ca60e3aa5ab1f5f71a6e040ae8614ce23c",
+  "test_observations": 180,
+  "observations_with_predictions": 177,
+  "empty_observations": [
+    "20170708164010Mh",
+    "20200310113230Ch",
+    "20211214174010Mh"
+  ],
+  "instances": 1225,
+  "overlapping_pixels": 0,
+  "valid": true,
+  "empty_policy": "No row for observations with zero predicted instances; no fabricated mask."
+}

@@ -1,0 +1,104 @@
+{
+  "jobs": [
+    {
+      "name": "unet_convnextv2b_f1_v1",
+      "expected_seconds": 1900,
+      "args": [
+        "--kind",
+        "semantic",
+        "--encoder",
+        "tu-convnextv2_base.fcmae_ft_in22k_in1k",
+        "--fold",
+        "1",
+        "--size",
+        "1024",
+        "--batch",
+        "4",
+        "--epochs",
+        "40",
+        "--lr",
+        ".0003",
+        "--val-every",
+        "4",
+        "--name",
+        "unet_convnextv2b_f1_v1",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "unet_convnextv2b_f1_1536",
+      "expected_seconds": 1600,
+      "args": [
+        "--kind",
+        "semantic",
+        "--encoder",
+        "tu-convnextv2_base.fcmae_ft_in22k_in1k",
+        "--fold",
+        "1",
+        "--size",
+        "1536",
+        "--batch",
+        "2",
+        "--accum",
+        "2",
+        "--epochs",
+        "18",
+        "--lr",
+        ".0001",
+        "--val-every",
+        "3",
+        "--init",
+        "runs/unet_convnextv2b_f1_v1/best.pt",
+        "--name",
+        "unet_convnextv2b_f1_1536",
+        "--workers",
+        "4"
+      ]
+    },
+    {
+      "name": "pipeline_v2_f1",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 180,
+      "args": [
+        "--config",
+        "configs/pipeline_v2_f1.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/pipeline_v2_f1"
+      ]
+    },
+    {
+      "name": "pipeline_tiny_v2_f1",
+      "module": "scripts.predict_pipeline",
+      "expected_seconds": 180,
+      "args": [
+        "--config",
+        "configs/pipeline_tiny_v2_f1.json",
+        "--split",
+        "valid",
+        "--output",
+        "runs/pipeline_tiny_v2_f1"
+      ]
+    },
+    {
+      "name": "unet_convnextv2b_f1_1536_test_tta",
+      "module": "scripts.predict",
+      "expected_seconds": 150,
+      "args": [
+        "--checkpoint",
+        "runs/unet_convnextv2b_f1_1536/best.pt",
+        "--split",
+        "test",
+        "--tta",
+        "flip",
+        "--batch",
+        "1",
+        "--cache-probs",
+        "--output",
+        "submissions/unet_convnextv2b_f1_1536_test_tta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "all_folds": {
+    "groups": 331,
+    "resamples": 5000,
+    "coarse_pq": 0.4287293647098246,
+    "refined_pq": 0.44266329482574596,
+    "refined_95pct": [
+      0.4326603837530169,
+      0.4522692721830963
+    ],
+    "delta": 0.013933930115921367,
+    "delta_95pct": [
+      0.011126176734855308,
+      0.016773375941813003
+    ],
+    "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+  },
+  "confirmation_folds": {
+    "groups": 265,
+    "resamples": 5000,
+    "coarse_pq": 0.4280212087281249,
+    "refined_pq": 0.4429566407060731,
+    "refined_95pct": [
+      0.431640224435489,
+      0.45354139036610003
+    ],
+    "delta": 0.014935431977948221,
+    "delta_95pct": [
+      0.011792814106950242,
+      0.01815402535157205
+    ],
+    "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+  },
+  "folds": {
+    "0": {
+      "groups": 66,
+      "resamples": 5000,
+      "coarse_pq": 0.431760361668721,
+      "refined_pq": 0.4414049394892011,
+      "refined_95pct": [
+        0.4230888956683599,
+        0.4591340368080544
+      ],
+      "delta": 0.009644577820480116,
+      "delta_95pct": [
+        0.002183306429180354,
+        0.016135476915583664
+      ],
+      "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+    },
+    "1": {
+      "groups": 69,
+      "resamples": 5000,
+      "coarse_pq": 0.41335838550532666,
+      "refined_pq": 0.43192637554163954,
+      "refined_95pct": [
+        0.41011927033983,
+        0.4528662421543859
+      ],
+      "delta": 0.018567990036312876,
+      "delta_95pct": [
+        0.012332852301968263,
+        0.025633583981784662
+      ],
+      "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+    },
+    "2": {
+      "groups": 65,
+      "resamples": 5000,
+      "coarse_pq": 0.4361496341494667,
+      "refined_pq": 0.45005572393903726,
+      "refined_95pct": [
+        0.4267251174202212,
+        0.4712440868831549
+      ],
+      "delta": 0.01390608978957053,
+      "delta_95pct": [
+        0.008616045428744726,
+        0.02008981325392581
+      ],
+      "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+    },
+    "3": {
+      "groups": 64,
+      "resamples": 5000,
+      "coarse_pq": 0.42796160193015703,
+      "refined_pq": 0.44212332034111446,
+      "refined_95pct": [
+        0.4189722080576207,
+        0.4648952690280496
+      ],
+      "delta": 0.014161718410957425,
+      "delta_95pct": [
+        0.00706800013502093,
+        0.021098601462781558
+      ],
+      "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+    },
+    "4": {
+      "groups": 67,
+      "resamples": 5000,
+      "coarse_pq": 0.4348145056893634,
+      "refined_pq": 0.4478143630705952,
+      "refined_95pct": [
+        0.4261033318245444,
+        0.46808286630390755
+      ],
+      "delta": 0.012999857381231772,
+      "delta_95pct": [
+        0.0066639424944404165,
+        0.019203220114895926
+      ],
+      "note": "Paired temporal-group bootstrap, conditional on fitted models; not nested model-selection uncertainty."
+    }
+  },
+  "manifest_sha256": "f330e09d894a9801f129abd4925327a5616d7383d75a44807ad8ff99bc1b4d7c",
+  "distribution": {
+    "gt_instances": 8199,
+    "matched_pairs": 5244,
+    "gt_best_iou_mean": 0.49860801419928347,
+    "gt_best_dice_mean": 0.6088009444703948,
+    "matched_iou_mean": 0.6782607883151922,
+    "split_gt_nonzero_overlap": 261,
+    "merged_pred_nonzero_overlap": 241,
+    "predictions_repeated_per_annotation": 7870,
+    "overlap_definition": "Any nonzero pixel overlap; diagnostic, not an IoU>.5 match."
+  },
+  "qualitative_selection": [
+    {
+      "image_id": "20110109104734Ch",
+      "annotator_id": "030101-20110109104734Ch",
+      "gt_index": 0,
+      "best_iou": 0.0,
+      "fold": 0,
+      "crop_xywh": [
+        1077,
+        431,
+        240,
+        240
+      ]
+    },
+    {
+      "image_id": "20150518145654Bh",
+      "annotator_id": "010101-20150518145654Bh",
+      "gt_index": 19,
+      "best_iou": 0.4498956158663883,
+      "fold": 1,
+      "crop_xywh": [
+        1260,
+        1027,
+        240,
+        240
+      ]
+    },
+    {
+      "image_id": "20150614162514Mh",
+      "annotator_id": "010403-20150614162514Mh",
+      "gt_index": 0,
+      "best_iou": 0.6500116198001394,
+      "fold": 0,
+      "crop_xywh": [
+        671,
+        544,
+        259,
+        259
+      ]
+    },
+    {
+      "image_id": "20120509163414Mh",
+      "annotator_id": "060403-20120509163414Mh",
+      "gt_index": 1,
+      "best_iou": 0.85,
+      "fold": 4,
+      "crop_xywh": [
+        994,
+        1353,
+        240,
+        240
+      ]
+    }
+  ],
+  "qualitative_protocol": "Closest GT best-IoU to fixed targets 0/.45/.65/.85, area 256..6000 px, distinct held-out images; examples illustrate strengths and failures, not prevalence."
+}
